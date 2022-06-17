@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.CubicCurveTo?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.LineTo?>
+<?import javafx.scene.shape.MoveTo?>
+<?import javafx.scene.shape.Path?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.QuadCurveTo?>
+<?import javafx.scene.text.Font?>
+
+<StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.bdd.controller.GameMapController">
+   <children>
+      <Pane fx:id="root" prefHeight="595.0" prefWidth="1140.0">
+         <children>
+            <ImageView fitHeight="595.0" fitWidth="1140.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@bobbyDodd1.png" />
+               </image>
+            </ImageView>
+            <ProgressBar fx:id="healthBar" layoutX="984.0" layoutY="52.0" onMouseEntered="#showHealthBarLabel" onMouseExited="#showHealthBarLabel" prefHeight="20.0" prefWidth="131.0" progress="1.0" />
+            <Label alignment="CENTER" layoutX="1000.0" layoutY="14.0" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: LIGHTGREY; -fx-background-radius: 5;" text="Health" textAlignment="CENTER" textFill="#c90000">
+               <font>
+                  <Font name="Arial Bold" size="26.0" />
+               </font>
+            </Label>
+            <Label fx:id="moneyLabel" layoutX="798.0" layoutY="16.0" onMouseEntered="#updateMoneyLabel" prefHeight="27.0" prefWidth="176.0" style="-fx-background-color: LIGHTGREY; -fx-background-radius: 5;" text="Money: $0">
+               <font>
+                  <Font name="Arial Bold" size="23.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </Label>
+            <Label fx:id="healthBarLabel" alignment="CENTER" layoutX="992.0" layoutY="70.0" prefHeight="27.0" prefWidth="130.0" text="0/0" textFill="#eb0000" visible="false">
+               <font>
+                  <Font name="Arial" size="23.0" />
+               </font>
+            </Label>
+            <Path fx:id="enemyPath" fill="#1f93ff00" stroke="#1500ff" strokeLineCap="ROUND" strokeLineJoin="BEVEL" strokeWidth="10.0" visible="false">
+               <elements>
+                  <MoveTo y="282.0" />
+                  <LineTo x="183.0" y="282.0" />
+                  <CubicCurveTo controlX1="203.0" controlX2="196.0" controlY1="230.0" controlY2="239.0" x="237.0" y="226.0" />
+                  <CubicCurveTo controlX1="377.0" controlX2="448.0" controlY1="173.0" controlY2="221.0" x="583.0" y="152.0" />
+                  <QuadCurveTo controlX="632.0" controlY="118.0" x="609.0" y="298.0" />
+                  <LineTo x="320.0" y="366.0" />
+                  <QuadCurveTo controlX="292.0" controlY="366.0" x="311.0" y="402.0" />
+                  <CubicCurveTo controlX1="339.0" controlX2="510.0" controlY1="518.0" controlY2="406.0" x="600.0" y="403.0" />
+                  <QuadCurveTo controlX="620.0" controlY="376.0" x="783.0" y="393.0" />
+                  <CubicCurveTo controlX1="780.0" controlX2="790.0" controlY1="405.0" controlY2="467.0" x="780.0" y="512.0" />
+                  <LineTo x="608.0" y="510.0" />
+                  <LineTo x="600.0" y="403.0" />
+                  <QuadCurveTo controlX="620.0" controlY="376.0" x="783.0" y="393.0" />
+                  <CubicCurveTo controlX1="780.0" controlX2="790.0" controlY1="405.0" controlY2="467.0" x="780.0" y="512.0" />
+                  <LineTo x="852.0" y="485.0" />
+                  <QuadCurveTo controlX="958.0" controlY="610.0" x="965.0" y="475.0" />
+                  <LineTo x="906.0" y="151.0" />
+               </elements>
+            </Path>
+            <Pane fx:id="arrow" visible="false">
+               <children>
+                  <Line endX="23.75" fill="#1e90ff00" layoutX="-6.0" layoutY="8.0" startX="6.75" stroke="DODGERBLUE" strokeLineCap="ROUND" strokeWidth="6.0" />
+                  <Polygon fill="DODGERBLUE" layoutX="25.0" layoutY="29.0" points="-10.0, -13.5, 2.75, -21.0, -10.0, -28.0" stroke="#ed000000" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="3.0" strokeType="INSIDE" strokeWidth="10.0" />
+               </children>
+            </Pane>
+            <JFXHamburger fx:id="menuButton" layoutX="1022.0" layoutY="550.0" onMousePressed="#activateMenuDrawer" prefHeight="27.0" prefWidth="70.0" />
+            <JFXDrawer fx:id="menuDrawer" defaultDrawerSize="150.0" direction="RIGHT" layoutX="974.0" layoutY="84.0" minWidth="150.0" overLayVisible="false" prefHeight="455.0" prefWidth="150.0" resizeContent="true" style="-fx-background-color: TRANSPARENT; -fx-border-radius: 12; -fx-background-radius: 12;" />
+            <ImageView fx:id="newTower" fitHeight="52.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@standardbuzz.PNG" />
+               </image>
+            </ImageView>
+            <Circle fx:id="towerRadius" opacity="0.26" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" />
+            <ToolBar fx:id="roundToolbar" layoutY="530.0" prefHeight="66.0" prefWidth="630.0" style="-fx-background-color: GOLDENROD; -fx-background-radius: 13; -fx-border-color: BLACK; -fx-border-radius: 10; -fx-border-width: 5;">
+              <items>
+                  <JFXButton fx:id="startRoundButton" buttonType="RAISED" onAction="#startRound" prefHeight="42.0" prefWidth="113.0" style="-fx-background-color: GREEN;" text="Start Game">
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <Label prefHeight="42.0" prefWidth="75.0" text="Round:" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="roundNumberLabel">
+                     <font>
+                        <Font name="Arial Black" size="19.0" />
+                     </font>
+                  </Label>
+                  <Separator prefHeight="45.0" prefWidth="16.0" visible="false" />
+                  <Label text="Next Up:">
+                     <font>
+                        <Font name="Arial Black" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="upNextEnemyLabel" text="0 Panthers, 0 Eagles, 0 Blue Devils">
+                     <font>
+                        <Font name="Arial Italic" size="16.0" />
+                     </font>
+                  </Label>
+              </items>
+            </ToolBar>
+            <ToolBar fx:id="upgradeToolbar" layoutX="-1.0" layoutY="531.0" prefHeight="66.0" prefWidth="657.0" style="-fx-background-color: GOLDENROD; -fx-background-radius: 13; -fx-border-color: BLACK; -fx-border-radius: 10; -fx-border-width: 5;" visible="false">
+               <items>
+                  <Label prefHeight="42.0" prefWidth="75.0" text="Tower:" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="upgradeTowerNameLabel">
+                     <font>
+                        <Font name="Arial Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Separator prefHeight="46.0" prefWidth="14.0" visible="false" />
+                  <Label fx:id="upgradeTowerCost" text="Cost: $0">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="upgradeTowerStatsLabel">
+                     <font>
+                        <Font name="Arial Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="upgradeButton" buttonType="RAISED" style="-fx-background-color: GREEN;" text="Upgrade">
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </JFXButton>
+               </items>
+            </ToolBar>
+         </children>
+      </Pane>
+   </children>
+</StackPane>

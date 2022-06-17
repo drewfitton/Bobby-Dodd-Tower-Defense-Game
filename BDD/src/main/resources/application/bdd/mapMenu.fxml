@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="455.0" prefWidth="150.0" style="-fx-background-color: GOLD; -fx-border-color: NAVY; -fx-border-width: 4;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Separator halignment="LEFT" opacity="0.0" orientation="VERTICAL" prefHeight="62.0" prefWidth="6.0" />
+      <Pane prefHeight="455.0" prefWidth="150.0" style="-fx-background-radius: 12; -fx-border-radius: 12;">
+         <children>
+            <ImageView fitHeight="66.0" fitWidth="62.0" layoutX="8.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@standardbuzz.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="72.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@electricbuzz.PNG" />
+               </image>
+               <effect>
+                  <Glow level="1.0" />
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="45.0" layoutX="18.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@ramblinwreckbuzz.PNG" />
+               </image>
+            </ImageView>
+            <Label fx:id="noMoneyLabel" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" layoutX="6.0" layoutY="423.0" prefHeight="18.0" prefWidth="134.0" text="Insufficient Funds!" textFill="RED">
+               <font>
+                  <Font name="DIN Alternate Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="26.0" layoutY="55.0" text="Buzz" textFill="WHITE">
+               <font>
+                  <Font name="DIN Condensed Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="80.0" layoutY="57.0" text="Electric Buzz" textFill="WHITE">
+               <font>
+                  <Font name="DIN Condensed Bold" size="13.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="tower1Button" buttonType="RAISED" layoutX="13.0" layoutY="9.0" onMouseClicked="#buyTower1" prefHeight="50.0" prefWidth="52.0" style="-fx-background-color: TRANSPARENT;" text="Button1" textFill="#fffcfc00">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" contentDisplay="BOTTOM" layoutX="73.0" layoutY="4.0" onMouseClicked="#buyTower2" prefHeight="60.0" prefWidth="62.0" style="-fx-background-color: TRANSPARENT;" text="Button2" textFill="#ffffff00" />
+            <JFXButton layoutX="13.0" layoutY="80.0" onMouseClicked="#buyTower3" prefHeight="60.0" prefWidth="52.0" text="Button3" textFill="TRANSPARENT" />
+            <Label layoutX="8.0" layoutY="133.0" text="Ramblin' Wreck" textFill="WHITE">
+               <font>
+                  <Font name="DIN Condensed Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</StackPane>
